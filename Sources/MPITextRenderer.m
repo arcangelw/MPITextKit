@@ -16,7 +16,6 @@
 #import "MPITextDefaultsValueHelpers.h"
 #import "MPITextCache.h"
 #import "MPITextKitConst.h"
-#import "MPITextInput.h"
 
 static MPITextCache *sharedTruncaterCache(void)
 {

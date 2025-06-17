@@ -1,0 +1,1 @@
+../../Sources/MPITextAttachmentsInfo.h

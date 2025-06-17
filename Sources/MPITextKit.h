@@ -6,6 +6,8 @@
 //  Copyright © 2018年 美图网. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 #ifndef MPITextKit_h
 #define MPITextKit_h
 

@@ -1,21 +1,22 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "MPITextKit",
-    platforms: [.iOS(.v9)],
+    platforms: [.iOS(.v12)],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "MPITextKit",
-            targets: ["MPITextKit"]),
-        
+            targets: ["MPITextKit"]
+        ),
+
         .library(name: "MPITextKitDynamic",
                  type: .dynamic,
                  targets: ["MPITextKit"]),
-        
+
         .library(name: "MPITextKitStatic",
                  type: .static,
                  targets: ["MPITextKit"]),
@@ -29,7 +30,21 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "MPITextKit",
-            path: "Sources",
-            publicHeadersPath:""),
+            path: ".",
+            exclude: ["README.md", "Example", "fastlane", "Framework", "MPITextKitTests", "CONTRIBUTING.md", "Gemfile", "MPITextKit.podspec"],
+            sources: ["Sources"],
+            resources: [.copy("PrivacyInfo.xcprivacy")],
+            cSettings: [
+                .headerSearchPath("Sources"),
+            ],
+            linkerSettings: [
+                .linkedFramework("UIKit"),
+                .linkedFramework("CoreFoundation"),
+                .linkedFramework("CoreText"),
+                .linkedFramework("QuartzCore"),
+                .linkedFramework("Accelerate")
+            ]
+        ),
     ]
 )
+

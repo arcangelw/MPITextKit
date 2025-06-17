@@ -75,6 +75,21 @@ CGSize MPITextSuggestFrameSizeForAttributes(MPITextRenderAttributes *attributes,
 @property (nullable, nonatomic, strong) MPITextRenderer *textRenderer;
 
 /**
+ Returns the actual text renderer used to display content, depending on the current interaction state.
+
+ If `textRenderer` is set and there is no active interaction (such as link tapping),
+ the renderer will be reused directly for better performance.
+
+ Otherwise, a new renderer is created using the current rendering attributes and layout constraints.
+
+ This renderer ignores common properties (such as text, font, textColor, attributedText...)
+ and only uses the text renderer to display content.
+
+ Use this property when you need precise control over rendering or to respond to interaction state changes.
+ */
+@property (nullable, nonatomic, strong, readonly) MPITextRenderer *currentRenderer;
+
+/**
  The text displayed by the label. Default is nil.
  Set a new value to this property also replaces the text in `attributedText`.
  Get the value returns the plain text in `attributedText`.

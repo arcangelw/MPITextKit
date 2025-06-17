@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#if __has_include(<MPITextKit/MPITextKit.h>)
+#import <MPITextKit/MPITextInput.h>
+#else
+#import "MPITextInput.h"
+#endif
+
 @class MPITextRenderAttributes;
 @class MPITextAttachmentsInfo;
 @class MPITextBackgroundsInfo;
 @class MPITextDebugOption;
-@class MPITextSelectionRect;
 
 NS_ASSUME_NONNULL_BEGIN
 
